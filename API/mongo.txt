@@ -1,0 +1,3 @@
+username : shivamkrsingh4688
+password : Mof0mTF2Iiv31q11
+connection string : mongodb+srv://shivamkrsingh4688:Mof0mTF2Iiv31q11@cluster0.wry4o.mongodb.net/
