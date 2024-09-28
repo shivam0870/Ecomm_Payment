@@ -5,7 +5,7 @@ import { Cart } from '../Models/Cart.js';
 export const addToCart = async (req, res) => {
     try {
         const { productId, title, price, qty, imgSrc } = req.body;
-        const userId = "66ebfba190560a9e2e01c93d";
+        const userId = req.user;
         //getting cart by the user id because it is user specific 
         let cart = await Cart.findOne({ userId })
         //if cart is not there then we will create a cart else we will increase or decrease the quantitiy of cart item
@@ -38,7 +38,7 @@ export const addToCart = async (req, res) => {
 //Get user cart
 
 export const userCart = async (req, res) => {
-    const userId = "66ebfba190560a9e2e01c93d";
+    const userId = req.user;
     try {
         let cart = await Cart.findOne({ userId });
         if (!cart) {
@@ -59,7 +59,7 @@ export const userCart = async (req, res) => {
 
 export const removeProductFromCart = async (req, res) => {
     const productId = req.params.productId;
-    const userId = "66ebfba190560a9e2e01c93d";
+    const userId = req.user;
     try {
         let cart = await Cart.findOne({ userId })
         if (!cart) {
@@ -83,7 +83,7 @@ export const removeProductFromCart = async (req, res) => {
 // Clear cart
 
 export const clearCart = async(req,res) => {
-    const userId = "66ebfba190560a9e2e01c93d";
+    const userId = req.user;
     let cart = await Cart.findOne({userId});
     if(!cart){
         cart = new Cart({items : []})
