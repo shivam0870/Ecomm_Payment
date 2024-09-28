@@ -1,6 +1,7 @@
 import express from "express";
-import { register, users } from "../Controllers/user.js";
+import { profile, register, users } from "../Controllers/user.js";
 import {login} from "../Controllers/user.js";
+import { Authenticated } from "../Middlewares/Auth.js";
 
 const router = express.Router();
 
@@ -12,5 +13,8 @@ router.post('/login', login);
 
 //Get all users
 router.get('/all',users);
+
+//Get user Profile
+router.get('/profile', Authenticated, profile)
 
 export default router;
