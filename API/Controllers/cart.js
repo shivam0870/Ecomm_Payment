@@ -31,6 +31,7 @@ export const addToCart = async (req, res) => {
         })
     } catch (error) {
         res.json(error.message)
+        console.log(error.message);
     }
 
 }
