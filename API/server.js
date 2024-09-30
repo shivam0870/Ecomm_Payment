@@ -5,6 +5,7 @@ import bodyParser from 'express';
 import productRouter from "./Routes/product.js"
 import cartRouter from "./Routes/cart.js"
 import addressRouter from "./Routes/address.js";
+import cors from 'cors';
 
 const app = express();
 
@@ -14,6 +15,12 @@ app.get('/', (req,res) => {
         message : "Hello  from server"
     })
 })
+
+app.use(cors({
+    origin : true,
+    methods :  ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials : true
+}))
 
 //User Router
 app.use('/api/user', userRouter);
