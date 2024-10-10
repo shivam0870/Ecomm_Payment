@@ -236,3 +236,53 @@ body::-webkit-scrollbar {
     background-color: #333;
   }
 }
+
+/* Logo Styles */
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Center the logo horizontally */
+  align-items: center; /* Center the logo vertically */
+}
+
+.left h3 {
+  font-size: 36px; /* Large font size for visibility */
+  font-weight: bold;
+  color: #07eff7; /* Cyan color for the logo */
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(138, 43, 226, 0.5); /* Glow effect */
+  transition: transform 0.5s ease, color 0.5s ease; /* Smooth transformation on hover */
+}
+
+/* Hover Animation */
+.left h3:hover {
+  color: #ffcc00; /* Change color on hover */
+  transform: scale(1.1) rotate(3deg); /* Scale and slight rotation */
+  animation: flicker 0.3s infinite alternate; /* Flicker effect */
+}
+
+/* Flicker Animation */
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Add a subtle bounce effect */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+

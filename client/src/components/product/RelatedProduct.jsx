@@ -9,7 +9,7 @@ const RelatedProduct = ({category}) => {
     const [relatedProduct, setRelatedProduct] = useState([]);
 
     useEffect(() => {
-   setRelatedProduct(arr.filter((data) => data.category.toLowerCase() === category?.toLowerCase()));
+   setRelatedProduct(arr.filter((data) => data?.category?.toLowerCase() === category?.toLowerCase()));
     }, [category,products.products]);
 
 // useEffect(() => {

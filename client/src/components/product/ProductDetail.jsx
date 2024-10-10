@@ -7,7 +7,7 @@ import RelatedProduct from './RelatedProduct';
 const ProductDetail = () => {
     const [product, setProduct] = useState();
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
     const url = "http://localhost:1000/api";
 
     useEffect(() => {
