@@ -15,7 +15,7 @@ const AppState = (props) => {
         },
         withCredentials: true
       });
-      console.log(api);
+      // console.log(api);
       setProducts(api.data.products);
     }
     fetchProducts();

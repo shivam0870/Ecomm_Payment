@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 
 const RelatedProduct = ({category}) => {
     const products = useContext(AppContext);
-    // console.log(products + "afddddddddd")
+    console.log("sample", products.products);
+    const arr = products.products;
     const [relatedProduct, setRelatedProduct] = useState([]);
 
     useEffect(() => {
-   setRelatedProduct(products.products.filter((data) => data.category.toLowerCase() == category?.toLowerCase()))
-    }, [category,products.products])
+   setRelatedProduct(arr.filter((data) => data.category.toLowerCase() === category?.toLowerCase()));
+    }, [category,products.products]);
 
 // useEffect(() => {
 //     if (Array.isArray(products)) {
