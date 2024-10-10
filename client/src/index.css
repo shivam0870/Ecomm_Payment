@@ -6,3 +6,133 @@ body {
 body::-webkit-scrollbar{
   display: none;
 }
+
+/* Navbar CSS */
+
+.nav {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav_bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  flex: 1;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.search-bar {
+  flex: 2;
+  padding: 10px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.right {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.right button:hover {
+  background-color: #2E865F;
+}
+
+.sub_bar {
+  height: 10px;
+  background-color: #2E865F;
+}
+
+/* Animations */
+
+.nav {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.nav_bar {
+  animation: slideDown 0.5s ease-in-out;
+}
+
+.left {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.logo {
+  animation: pulse 2s infinite;
+}
+
+.search-bar {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.search-input {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.right {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.right button {
+  animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -20,15 +20,13 @@ const ShowProduct = () => {
 
               <div className="card-body">
                 <h5 className="card-title">{product.title}</h5>
-                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
-                <div className='my-3'>
-                  <button className="btn btn-primary mx-3">
-                    {product.price} {"₹"}
-                  </button>
-
-                  <button className="btn btn-warning">
-                    Add To Cart
-                  </button>
+                <p className="card-text">{product.description}</p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <h5 className="card-price">{"₹"} {product.price}</h5>
+                  <div className="d-flex">
+                    <button className="btn btn-primary mx-2">Buy Now</button>
+                    <button className="btn btn-warning mx-2">Add To Cart</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -39,4 +37,4 @@ const ShowProduct = () => {
   )
 }
 
-export default ShowProduct
+export default ShowProduct;
