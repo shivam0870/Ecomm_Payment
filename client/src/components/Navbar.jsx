@@ -1,4 +1,5 @@
 import React from 'react';
+import '../index.css';
 
 const Navbar = () => {
   return (
@@ -6,10 +7,10 @@ const Navbar = () => {
       <div className="nav sticky-top">
         <div className="nav_bar">
           <div className="left">
-            <h3 className="logo">NextGenMart</h3>
+            <h3>NextGenMart</h3>
           </div>
           <div className="search-bar">
-            <input type="text" placeholder="Search..." className="search-input" />
+            <input type="text" placeholder="Search..." />
           </div>
           <div className="right">
             <button className="btn btn-warning mx-3">Cart</button>
