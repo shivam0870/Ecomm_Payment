@@ -3,15 +3,15 @@ import '../index.css';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate(); // Call useNavigate here
+  const [searchTerm, setSearchTerm] = useState(" ");
+  const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
+  const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // Navigate without the colon, as it's not needed
     navigate(`/product/search/${searchTerm}`);
     setSearchTerm(" ");
-  }
+  };
 
   return (
     <>
@@ -27,13 +27,20 @@ const Navbar = () => {
               type="text" 
               placeholder="Search..." 
             />
-            <button type="submit" style={{ display: 'none' }}>Search</button> {/* Optional: Hide button for better UI */}
+            <button type="submit" style={{ display: 'none' }}>Search</button>
           </form>
-          <div className="right">
+
+          <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
+          <div className={`right ${isOpen ? 'show' : ''}`}>
             <button className="btn btn-warning mx-3">Cart</button>
             <button className="btn btn-warning mx-3">Profile</button>
             <button className="btn btn-warning mx-3">Login</button>
-            <button className="btn btn-warning mx-3">Register</button>
+            <button onClick={() => navigate('/register')} className="btn btn-warning mx-3">Register</button>
             <button className="btn btn-warning mx-3">Logout</button>
           </div>
         </div>
