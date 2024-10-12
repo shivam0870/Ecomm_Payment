@@ -64,6 +64,7 @@ const handleSubmit = async (event) => {
 
   return (
     <div className="register-container">
+      <h1 className='reg-h1'>Register yourself Here!!</h1>
       <form className="register-form" onSubmit={handleSubmit}>
       <div className="mb-3">
           <label

@@ -3,7 +3,7 @@ import AppContext from '../../context/AppContext'
 import { Link } from 'react-router-dom';
 
 const ShowProduct = () => {
-  const { products } = useContext(AppContext);
+  const { products , filteredData} = useContext(AppContext);
   return (
     <>
       <div className="container d-flex justify-content-center align-items-center">
@@ -11,7 +11,7 @@ const ShowProduct = () => {
 
         <div className="row container d-flex justify-content-center align-items-center my-5">
 
-          {products?.map((product) => {
+          {filteredData?.map((product) => {
            return (<div key={product._id} className='my-2 col-md-4 d-flex justify-content-center align-items-center'>
             <div className="card bg-dark text-light text-center" style={{ width: "18rem" }}>
               <Link to={`/product/${product._id}`} className='d-flex justify-content-center align-items-center p-3'>
