@@ -246,11 +246,28 @@ const AppState = (props) => {
     return api.data;
   };
 
+  const logout = () => {
+    setIsAuthenticated(false);
+    setToken(" ");
+    localStorage.removeItem('token');
+    toast.success("Logout Successful", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  }
+
 
   return (
     <AppContext.Provider value={{
       // adding the state here
-      products, register, login, url, token, setIsAuthenticated, isAuthenticated, filteredData,setFilteredData
+      products, register, login, url, token, setIsAuthenticated, isAuthenticated, filteredData,setFilteredData, logout
     }}>{props.children}</AppContext.Provider>
   )
 }

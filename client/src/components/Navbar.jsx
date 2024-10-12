@@ -9,7 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-const {setFilteredData,products} = useContext(AppContext);
+const {setFilteredData,products, logout, isAuthenticated} = useContext(AppContext);
 
 const filterbyCategory = (cat) => {
   setFilteredData(products.filter((data) => data.category.toLowerCase() == cat.toLowerCase()));
@@ -49,15 +49,27 @@ const filterbyPrice = (price) => {
           </div>
 
           <div className={`right ${isOpen ? 'show' : ''}`}>
-            <button className="btn btn-warning mx-3">Cart</button>
-            <button className="btn btn-warning mx-3">Profile</button>
-            <button onClick={() => navigate('/login')} className="btn btn-warning mx-3">Login</button>
+            {isAuthenticated && (
+              <>
+               <button className="btn btn-warning mx-3">Cart</button>
+               <button className="btn btn-warning mx-3">Profile</button>
+               <button className="btn btn-warning mx-3" onClick={() => {
+              logout();
+              navigate('/');
+            }} >Logout</button>
+               </>
+            )}
+           {!isAuthenticated && (
+<>
+<button onClick={() => navigate('/login')} className="btn btn-warning mx-3">Login</button>
             <button onClick={() => navigate('/register')} className="btn btn-warning mx-3">Register</button>
-            <button className="btn btn-warning mx-3">Logout</button>
+</>
+           )}
+            
+           
           </div>
         </div>
 {location.pathname == '/' && (
-
 
 
 <div className="sub_bar">
