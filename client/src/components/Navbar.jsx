@@ -52,7 +52,9 @@ const filterbyPrice = (price) => {
             {isAuthenticated && (
               <>
                <button className="btn btn-warning mx-3">Cart</button>
-               <button className="btn btn-warning mx-3">Profile</button>
+               <button className="btn btn-warning mx-3" onClick={() => {
+                navigate('/profile');
+               }}>Profile</button>
                <button className="btn btn-warning mx-3" onClick={() => {
               logout();
               navigate('/');

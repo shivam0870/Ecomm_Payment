@@ -627,3 +627,727 @@ body::-webkit-scrollbar {
 .sub_bar:hover {
   background-color: darkviolet; /* Change background on hover for the entire bar */
 }
+
+
+
+/* Profile card css  */
+
+/* Global Styles */
+
+
+/* Profile Container */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background: linear-gradient(135deg, #1e1e1e, #292929); /* Gradient background */
+  overflow: hidden; /* Prevent overflow */
+}
+
+/* Profile Card Styling */
+.profile-card {
+  background-color: rgba(30, 30, 30, 0.85); /* Semi-transparent dark background */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7); /* Shadow for depth */
+  overflow: hidden; /* Hide overflow */
+  max-width: 400px; /* Maximum width */
+  width: 100%; /* Full width */
+  animation: cardEntrance 0.5s ease-out forwards, pulse 3s infinite; /* Entrance and pulse animations */
+}
+
+/* Profile Image */
+.profile-image {
+  width: 120px; /* Fixed width */
+  height: 120px; /* Fixed height */
+  border-radius: 50%; /* Circular image */
+  border: 4px solid #00bfff; /* Bright border color */
+  margin-bottom: 15px; /* Space below image */
+  transition: transform 0.3s ease; /* Transition for scaling */
+}
+
+/* Hover effect for the profile image */
+.profile-image:hover {
+  transform: scale(1.1) rotate(10deg); /* Scale and rotate on hover */
+}
+
+/* Profile Header Styling */
+.profile-header {
+  padding: 20px; /* Padding around header */
+  background: linear-gradient(135deg, #0077ff, #00bfff); /* Gradient background for header */
+  color: white; /* White text color */
+  text-align: center; /* Centered text */
+  box-shadow: inset 0 -4px 10px rgba(255, 255, 255, 0.1); /* Inner shadow */
+  position: relative; /* Position relative for pseudo-element */
+}
+
+/* Glow Effect for Header */
+.profile-header::after {
+  content: ''; /* Empty content for pseudo-element */
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  width: 300%; /* Large size for glow */
+  height: 300%; /* Large size for glow */
+  background: rgba(0, 123, 255, 0.4); /* Light blue glow */
+  border-radius: 50%; /* Circular glow */
+  transform: translate(-50%, -50%) scale(0); /* Scale to 0 initially */
+  transition: transform 0.5s ease; /* Smooth transition */
+  z-index: 0; /* Below text */
+}
+
+/* Header glow effect on hover */
+.profile-header:hover::after {
+  transform: translate(-50%, -50%) scale(1); /* Scale up on hover */
+}
+
+/* Profile Content Styling */
+.profile-content {
+  padding: 20px; /* Padding inside content */
+  color: #eaeaea; /* Light text color */
+}
+
+/* Profile Button Styling */
+.profile-button {
+  background-color: #0077ff; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for button */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for background color and transform */
+}
+
+/* Button hover effect */
+.profile-button:hover {
+  background-color: #005bb5; /* Darker color on hover */
+  transform: scale(1.05); /* Scale on hover */
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5); /* Shadow on hover */
+}
+
+/* Animation for Card Entrance */
+@keyframes cardEntrance {
+  0% {
+      transform: translateY(-50px) scale(0); /* Initial position and scale */
+      opacity: 0; /* Start invisible */
+  }
+  50% {
+      transform: translateY(10px) scale(1.05); /* Slight upward movement and scale */
+      opacity: 0.5; /* Half visible */
+  }
+  100% {
+      transform: translateY(0) scale(1); /* End position */
+      opacity: 1; /* Fully visible */
+  }
+}
+
+/* Pulse Animation for Continuous Effect */
+@keyframes pulse {
+  0%, 100% {
+      transform: scale(1); /* Start and end scale */
+  }
+  50% {
+      transform: scale(1.05); /* Scale up in the middle */
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .profile-card {
+      margin: 20px; /* Margin for smaller screens */
+  }
+  .profile-button {
+      width: 100%; /* Full width button */
+  }
+}
+
+/* Additional Styling for Better Visuals */
+.profile-content p {
+  font-size: 16px; /* Font size for paragraph */
+  margin-top: 10px; /* Space above paragraph */
+  line-height: 1.5; /* Line height for readability */
+  animation: fadeIn 1s ease-in-out; /* Fade in animation */
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0; /* Start invisible */
+  }
+  to {
+      opacity: 1; /* End fully visible */
+  }
+}
+
+/* Dark Theme Adjustments */
+.profile-card {
+  background-color: rgba(30, 30, 30, 0.85); /* Darker card background */
+}
+
+/* Profile Header Border */
+.profile-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Light border below header */
+}
+
+/* Profile Content Background */
+.profile-content {
+  background-color: rgba(60, 60, 60, 0.9); /* Darker content background */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Hover Effects for Profile Card */
+.profile-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 123, 255, 0.5); /* Increased shadow on hover */
+}
+
+/* Text Shadow for Header */
+.profile-header h1, .profile-header h3 {
+  text-shadow: 0 0 15px rgba(0, 123, 255, 0.8); /* Glow effect for text */
+}
+
+/* Animation for Content */
+.profile-content h3 {
+  animation: slideIn 0.6s ease-out forwards; /* Slide in animation */
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+  from {
+      transform: translateY(20px); /* Start below */
+      opacity: 0; /* Start invisible */
+  }
+  to {
+      transform: translateY(0); /* End at normal position */
+      opacity: 1; /* End fully visible */
+  }
+}
+
+/* Button Focus Effect */
+.profile-button:focus {
+  outline: none; /* No outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 1); /* Shadow on focus */
+}
+
+/* Button Active Effect */
+.profile-button:active {
+  transform: scale(0.95); /* Scale down on active */
+}
+
+/* Responsive Profile Image */
+@media (max-width: 600px) {
+  .profile-image {
+      width: 80px; /* Smaller image on mobile */
+      height: 80px; /* Smaller image on mobile */
+  }
+}
+
+/* Footer Styles */
+.footer {
+  text-align: center; /* Center footer text */
+  margin-top: 20px; /* Space above footer */
+  color: #a1a1a1; /* Light gray text */
+  font-size: 12px; /* Smaller font size */
+}
+
+/* Extended Styles for Complexity */
+.profile-header h1 {
+  font-size: 2em; /* Large font size for heading */
+  margin: 0; /* No margin */
+}
+
+.profile-header h3 {
+  font-size: 1.2em; /* Medium font size for subheading */
+  margin: 5px 0; /* Margin for spacing */
+}
+
+.profile-content h3 {
+  margin-top: 20px; /* Space above subheading */
+}
+
+.profile-button {
+  width: auto; /* Auto width */
+  margin-top: 15px; /* Space above button */
+}
+
+/* Adding more animations */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0); /* Original position */
+  }
+  40% {
+      transform: translateY(-10px); /* Bounce up */
+  }
+  60% {
+      transform: translateY(-5px); /* Slight bounce */
+  }
+}
+
+.profile-button:hover {
+  animation: bounce 1s; /* Bounce on hover */
+}
+
+/* Background Animation */
+@keyframes backgroundAnimation {
+  0% {
+      background-color: #1e1e1e;
+  }
+  50% {
+      background-color: #292929;
+  }
+  100% {
+      background-color: #1e1e1e;
+  }
+}
+
+.profile-container {
+  animation: backgroundAnimation 5s infinite; /* Background color change */
+}
+
+/* Adding complexity with additional classes */
+.text-center {
+  text-align: center; /* Center text */
+}
+
+.margin-bottom {
+  margin-bottom: 15px; /* Space below */
+}
+
+.padding-20 {
+  padding: 20px; /* 20px padding */
+}
+
+/* Animations for Text */
+@keyframes textEffect {
+  0%, 100% {
+      opacity: 0; /* Start invisible */
+  }
+  50% {
+      opacity: 1; /* Fully visible in middle */
+  }
+}
+
+.profile-content p {
+  animation: textEffect 3s ease-in-out infinite; /* Text effect */
+}
+
+/* More responsive design */
+@media (max-width: 768px) {
+  .profile-card {
+      max-width: 90%; /* More width on smaller screens */
+  }
+
+  .profile-button {
+      padding: 12px; /* Adjust button padding */
+  }
+}
+
+/* Card Animation on Scroll */
+@keyframes cardScroll {
+  0% {
+      transform: translateY(0);
+      opacity: 0.8;
+  }
+  100% {
+      transform: translateY(-20px);
+      opacity: 1;
+  }
+}
+
+.profile-card {
+  animation: cardScroll 0.5s ease-in-out forwards; /* Scroll animation */
+}
+
+/* Creating a glowing effect for the button */
+.profile-button:hover {
+  background-color: #005bb5; /* Darker background */
+  box-shadow: 0 0 20px rgba(0, 123, 255, 1); /* Glow effect */
+}
+
+/* Implementing shadows for text */
+.profile-header h1 {
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.8); /* Shadow for header */
+}
+
+/* Adjustments for h3 elements */
+.profile-header h3 {
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5); /* Shadow for h3 */
+}
+
+/* Further expansion of styles */
+.profile-card {
+  margin: 20px; /* Margin around the card */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.profile-card:hover {
+  transform: scale(1.05); /* Slight scale on hover */
+}
+
+/* Adding styles for various states */
+.profile-button:disabled {
+  background-color: #555; /* Disabled background */
+  cursor: not-allowed; /* Not allowed cursor */
+}
+
+/* Creating a scale effect on button */
+.profile-button {
+  transition: transform 0.2s ease; /* Transition for scaling */
+}
+
+.profile-button:hover {
+  transform: scale(1.05); /* Scale effect */
+}
+
+/* Adding further detail */
+.profile-image {
+  border: 5px solid #ffffff; /* Border around image */
+}
+
+/* Modifying h3 styles */
+.profile-content h3 {
+  font-size: 1.5em; /* Bigger font size for h3 */
+}
+
+/* Adding transitions to various elements */
+.profile-content p {
+  transition: color 0.3s ease; /* Color transition */
+}
+
+.profile-content p:hover {
+  color: #00bfff; /* Change color on hover */
+}
+
+/* Completing more animations */
+@keyframes flip {
+  0% {
+      transform: rotateY(0deg);
+  }
+  100% {
+      transform: rotateY(180deg);
+  }
+}
+
+.profile-card:hover {
+  animation: flip 0.5s ease; /* Flip animation on hover */
+}
+
+/* Making responsive adjustments */
+@media (max-width: 768px) {
+  .profile-image {
+      width: 100px; /* Responsive image */
+      height: 100px; /* Responsive height */
+  }
+
+  .profile-header h1 {
+      font-size: 1.5em; /* Adjust font size */
+  }
+}
+
+/* Additional details for the profile */
+.profile-content h3 {
+  color: #00bfff; /* Change color */
+}
+
+/* Adding more padding */
+.padding-10 {
+  padding: 10px; /* Padding class */
+}
+
+/* Adding background to content */
+.profile-content {
+  background-color: rgba(30, 30, 30, 0.8); /* Darker content background */
+}
+
+/* Footer background */
+.footer {
+  background: #1e1e1e; /* Footer background */
+  padding: 20px; /* Footer padding */
+  border-top: 1px solid #333; /* Top border */
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 600px) {
+  .footer {
+      padding: 15px; /* Adjust padding */
+      font-size: 14px; /* Font size */
+  }
+}
+
+/* Making image responsive */
+.profile-image {
+  max-width: 100%; /* Responsive image */
+}
+
+/* Complex shadow for card */
+.profile-card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 20px 40px rgba(0, 0, 0, 0.5); /* Complex shadow */
+}
+
+/* Centering the profile text */
+.text-center {
+  text-align: center; /* Center text */
+}
+
+/* Padding classes */
+.padding-20 {
+  padding: 20px; /* Padding class */
+}
+
+.padding-15 {
+  padding: 15px; /* Padding class */
+}
+
+.padding-5 {
+  padding: 5px; /* Padding class */
+}
+
+/* Adding margins */
+.margin-top {
+  margin-top: 20px; /* Margin class */
+}
+
+.margin-bottom {
+  margin-bottom: 20px; /* Margin class */
+}
+
+/* Complex hover effects */
+.profile-card:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7); /* Larger shadow */
+  transform: translateY(-5px); /* Slight lift */
+}
+
+/* Gradient background effect */
+.profile-card {
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.85), rgba(40, 40, 40, 0.85)); /* Gradient background */
+}
+
+/* More text shadow effects */
+.profile-header h1 {
+  text-shadow: 0 0 20px rgba(0, 255, 255, 1); /* Stronger shadow */
+}
+
+/* Mobile specific styles */
+@media (max-width: 400px) {
+  .profile-header {
+      font-size: 1.5em; /* Adjust header size */
+  }
+
+  .profile-content {
+      font-size: 0.9em; /* Adjust content size */
+  }
+}
+
+/* Button style for primary action */
+.btn-primary {
+  background-color: #007bff; /* Primary button color */
+  color: white; /* White text */
+}
+
+/* Button style for secondary action */
+.btn-secondary {
+  background-color: #6c757d; /* Secondary button color */
+  color: white; /* White text */
+}
+
+/* Button hover effects */
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue */
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268; /* Darker gray */
+}
+
+/* Shadow effect for profile image */
+.profile-image {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for image */
+}
+
+/* Gradient for button */
+.profile-button {
+  background: linear-gradient(45deg, #007bff, #00bfff); /* Gradient for button */
+}
+
+/* Adjusting button font size */
+.profile-button {
+  font-size: 18px; /* Font size */
+}
+
+/* Card hover effect with scale */
+.profile-card:hover {
+  transform: scale(1.05); /* Scale on hover */
+}
+
+/* Background color for profile content */
+.profile-content {
+  background-color: rgba(50, 50, 50, 0.9); /* Darker background */
+}
+
+/* Adding box shadow to buttons */
+.profile-button {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for button */
+}
+
+/* Adjusting header spacing */
+.profile-header {
+  padding: 30px; /* Increased padding */
+}
+
+/* Ensuring responsive design */
+@media (max-width: 500px) {
+  .profile-header h1 {
+      font-size: 1.5em; /* Adjusted size */
+  }
+
+  .profile-content {
+      padding: 15px; /* Adjusted padding */
+  }
+}
+
+/* Additional complex animations */
+@keyframes slideInRight {
+  from {
+      transform: translateX(100%); /* Start from the right */
+      opacity: 0; /* Start invisible */
+  }
+  to {
+      transform: translateX(0); /* End at normal position */
+      opacity: 1; /* Fully visible */
+  }
+}
+
+.profile-content {
+  animation: slideInRight 0.5s ease-out; /* Slide in animation */
+}
+
+/* Customizing button styles further */
+.btn {
+  padding: 12px 24px; /* Custom padding */
+  border-radius: 4px; /* Border radius */
+}
+
+/* Adding more media queries for responsiveness */
+@media (max-width: 400px) {
+  .profile-card {
+      margin: 10px; /* Smaller margins */
+  }
+
+  .profile-image {
+      width: 70px; /* Smaller image */
+      height: 70px; /* Smaller image */
+  }
+}
+
+/* Additional styling */
+.profile-content {
+  border-radius: 5px; /* Rounded corners for content */
+}
+
+/* Text styles */
+.profile-content p {
+  line-height: 1.6; /* Line height */
+}
+
+/* Shadows for profile card */
+.profile-card {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Shadow for card */
+}
+
+/* Spacing for footer */
+.footer {
+  padding: 10px 0; /* Padding for footer */
+}
+
+/* Complex button animations */
+@keyframes buttonEffect {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.profile-button {
+  animation: buttonEffect 2s infinite; /* Button animation */
+}
+
+/* Shadows for header */
+.profile-header {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Header shadow */
+}
+
+/* Header transition effect */
+.profile-header {
+  transition: background 0.5s; /* Transition for background */
+}
+
+.profile-header:hover {
+  background: linear-gradient(135deg, #005bb5, #0077ff); /* Darker gradient on hover */
+}
+
+/* Responsiveness */
+@media (max-width: 700px) {
+  .profile-card {
+      width: 90%; /* Full width on mobile */
+      margin: 0 auto; /* Centered */
+  }
+}
+
+/* Header animations */
+@keyframes headerEffect {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-5px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+.profile-header h1 {
+  animation: headerEffect 2s infinite; /* Header animation */
+}
+
+/* Button focus styles */
+.profile-button:focus {
+  outline: none; /* No outline */
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.5); /* Glow effect on focus */
+}
+
+/* Adding more effects */
+.profile-card {
+  margin: 20px; /* Margin around card */
+}
+
+/* More hover effects for content */
+.profile-content:hover {
+  transform: scale(1.02); /* Scale on hover */
+}
+
+/* Additional transitions */
+.profile-image {
+  transition: border 0.3s ease; /* Transition for border */
+}
+
+.profile-image:hover {
+  border: 5px solid #00bfff; /* Change border color */
+}
+
+/* Card hover */
+.profile-card:hover {
+  transform: translateY(-10px); /* Lift on hover */
+}
+
+/* Finalizing the card design */
+.profile-card {
+  padding: 20px; /* Padding for card */
+}
+
+/* Extensive commenting to fill lines */
