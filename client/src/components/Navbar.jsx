@@ -56,8 +56,12 @@ const filterbyPrice = (price) => {
             <button className="btn btn-warning mx-3">Logout</button>
           </div>
         </div>
+{location.pathname == '/' && (
+
+
+
 <div className="sub_bar">
-  <div className="items" onClick={() => filterbyCategory(products)}>No Filter</div>
+  <div className="items" onClick={() => setFilteredData(products)}>No Filter</div>
   <div className="items" onClick={() => filterbyCategory('mobiles')}>Mobiles</div>
   <div className="items" onClick={() => filterbyCategory('laptops')}>Laptops</div>
   <div className="items" onClick={() => filterbyCategory('cameras')}>Camera</div>
@@ -68,6 +72,7 @@ const filterbyPrice = (price) => {
   <div className="items" onClick={() => filterbyPrice(45000)}>Price &gt; 45000</div>
   <div className="items" onClick={() => filterbyPrice(550000)}>Price &gt; 55000</div>
 </div>
+)}
       </div>
     </>
   );
