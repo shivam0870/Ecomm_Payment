@@ -596,14 +596,34 @@ body::-webkit-scrollbar {
 
 /* sub bar  */
 
+/* SUB_BAR STYLING */
 .sub_bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: blueviolet;
+  background-color: blueviolet; /* Main background color */
+  padding: 10px; /* Padding for spacing */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
+/* ITEM STYLING */
 .sub_bar .items {
-  padding: 10px;
+  padding: 10px 15px; /* Padding for items */
+  border-radius: 5px; /* Slightly rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  position: relative; /* Required for the glow effect */
+}
+
+/* DARK GLOWING EFFECT ON HOVER */
+.sub_bar .items:hover {
+  cursor: pointer; /* Change cursor on hover */
+  transform: scale(1.05); /* Slightly enlarge item on hover */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.8); /* Dark glowing effect */
+}
+
+/* OPTIONAL: ADD A DARKER BACKGROUND ON HOVER */
+.sub_bar:hover {
+  background-color: darkviolet; /* Change background on hover for the entire bar */
 }
