@@ -1,6 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import AppContext from '../../context/AppContext';
+import {useNavigate} from 'react-router-dom';
 
 const Register = () => {
+ 
+const {register} = useContext(AppContext); 
+const navigate = useNavigate();
+  const [formData,setFromData] = useState({
+    name : '',
+    email : '',
+    password : ''
+  })
+
+  const onChangeHandler = (e) => {
+    const { name, value } = e.target;
+    setFromData({ ...formData, [name]: value });
+  };
+
+
   const [isChecked, setIsChecked] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
@@ -8,15 +25,42 @@ const Register = () => {
     setIsChecked(event.target.checked);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!isChecked) {
-      setShowNotification(true);
-    } else {
-      // Submit the form
-      alert('Registeration successful')
-    }
-  };
+  const {name,email,password} = formData;
+
+
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+//     if (!isChecked) {
+//       setShowNotification(true);
+     
+//     } else {
+//       // Submit the form
+//       // alert('Registeration successful')
+//       // console.log(formData);
+      
+// const res = await register(name,email,password);
+
+// if(res.success){
+//   navigate('/login');
+
+// }
+
+
+//     }
+//   };
+
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  if (!isChecked) {
+    setShowNotification(true);
+  } else {
+    const res = await register(name, email, password);
+    if (res.success) {
+      navigate('/login');
+    } 
+  }
+};
+
 
   return (
     <div className="register-container">
@@ -29,9 +73,12 @@ const Register = () => {
            Name
           </label>
           <input
+          name= "name"
+          value={formData.name}
+          onChange={onChangeHandler}
             type="text"
             className="form-control animated-input"
-            id="exampleInputEmail1"
+            id="exampleInputEmail1333333"
             aria-describedby="emailHelp"
           />
         </div>
@@ -42,10 +89,14 @@ const Register = () => {
           >
             Email 
           </label>
+
           <input
+            name= "email"
+            value={formData.email}
+            onChange={onChangeHandler}
             type="email"
             className="form-control animated-input"
-            id="exampleInputEmail1"
+            id="exampleInputEmail144444444444444"
             aria-describedby="emailHelp"
           />
           <div id="emailHelp" className="form-text animated-text">
@@ -60,21 +111,24 @@ const Register = () => {
             Password
           </label>
           <input
+            name= "password"
+            value={formData.password}
+            onChange={onChangeHandler}
             type="password"
             className="form-control animated-input"
-            id="exampleInputPassword1"
+            id="exampleInputPassword1132"
           />
         </div>
         <div className="mb-3 form-check">
           <input
             type="checkbox"
             className="htmlForm-check-input animated-checkbox"
-            id="exampleCheck1"
+            id="exampleCheck1555"
             onChange={handleCheckboxChange}
           />
           <label
             className="htmlForm-check-label animated-label"
-            htmlFor="exampleCheck1"
+            htmlFor="exampleCheck143134"
           >
             Confirm Details
           </label>
