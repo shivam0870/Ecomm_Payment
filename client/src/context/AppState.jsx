@@ -13,7 +13,8 @@ const AppState = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [filteredData,setFilteredData] = useState(products);
   const [user,setUser] = useState();
-  const[cart,setCart] = useState();
+  const[cart,setCart] = useState([]);
+  const [reload,setReload] = useState(false);
   useEffect(() => {
 
     const fetchProducts = async () => {
@@ -29,7 +30,8 @@ const AppState = (props) => {
       userProfile();
     };
     fetchProducts();
-  }, [token])
+    userCart();
+  }, [token,reload])
 
 useEffect(() => {
   let lstoken = localStorage.getItem('token');
@@ -254,7 +256,7 @@ useEffect(() => {
     });
 
     // console.log("user login ",api.data)
-    console.log(api);
+    // console.log(api);
     setToken(api.data.token);
     localStorage.setItem('token', api.data.token);
     setIsAuthenticated(true);
@@ -288,7 +290,7 @@ useEffect(() => {
       },
       withCredentials: true
     });
-   console.log("User profile",api.data);
+  //  console.log("User profile",api.data);
    setUser(api.data.user);
   }
 
@@ -305,6 +307,7 @@ useEffect(() => {
         withCredentials: true,
       }
     );
+    setReload(!reload);
     // setReload(!reload);
     //  console.log("my cart ",api)
     toast.success(api.data.message, {
@@ -323,30 +326,22 @@ useEffect(() => {
 
   //user cart 
 
-  const userCart = async (productId, title, price, qty, imgSrc) => {
-    // console.log("product id = ", productId);
-    const api = await axios.get(
-      `${url}/cart/user`,
-      { productId, title, price, qty, imgSrc },
-      {
-        headers: {
-          "Content-Type": "Application/json",
-          Auth: token,
-        },
-        withCredentials: true,
-      }
-    );
-    // setReload(!reload);
-    //  console.log("my cart ",api)
-  
-    setUser
-  };
-
+  const userCart = async () => {
+    const api = await axios.get(`${url}/cart/user`, {
+      headers: {
+        'Content-Type': 'Application/json',
+        'Auth' : token
+      },
+      withCredentials: true
+    });
+  //  console.log("User cart",api.data);
+   setCart(api.data.cart);
+  }
 
   return (
     <AppContext.Provider value={{
       // adding the state here
-      products, register, login, url, token, setIsAuthenticated, isAuthenticated, filteredData,setFilteredData, logout,user, addToCart
+      products, register, login, url, token, setIsAuthenticated, isAuthenticated, filteredData,setFilteredData, logout,user, addToCart,cart
     }}>{props.children}</AppContext.Provider>
   )
 }

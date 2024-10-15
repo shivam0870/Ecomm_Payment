@@ -51,7 +51,7 @@ const filterbyPrice = (price) => {
           <div className={`right ${isOpen ? 'show' : ''}`}>
             {isAuthenticated && (
               <>
-               <button className="btn btn-warning mx-3">Cart</button>
+               <button onClick={ () => {navigate('/cart')}} className="btn btn-warning mx-3">Cart</button>
                <button className="btn btn-warning mx-3" onClick={() => {
                 navigate('/profile');
                }}>Profile</button>
