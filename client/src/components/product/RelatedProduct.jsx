@@ -43,7 +43,7 @@ const RelatedProduct = ({category}) => {
             {product.price} {"₹"}
           </button>
 
-          <button className="btn btn-warning">
+          <button className="btn btn-warning" >
             Add To Cart
           </button>
         </div>
