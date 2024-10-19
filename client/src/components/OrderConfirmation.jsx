@@ -14,6 +14,7 @@ const OrderConfirmation = () => {
   console.log("latestOrder", latestOrder);
 
   return (
+    
     <>
       <div className="container my-3">
         <h1 className="text-center">Your order has been confirm,</h1>
