@@ -3,6 +3,7 @@ import AppContext from "../context/AppContext";
 import axios from "axios";
 import TableProduct from "./TableProduct";
 import { useNavigate } from "react-router-dom";
+import OrderConfirmation from "./OrderConfirmation";
 
 const Checkout = () => {
   const { cart, userAddress, url, user, clearCart } = useContext(AppContext);
@@ -23,68 +24,76 @@ const Checkout = () => {
     setQty(qty);
   }, [cart]);
 
-  const handlePayment = async () => {
-    try {
-      const orderRepons = await axios.post(`${url}/payment/checkout`, {
-        amount: price,
-        qty: qty,
-        cartItems: cart?.items,
-        userShipping: userAddress,
-        userId: user._id,
-      });
+  // const handlePayment = async () => {
+  //   try {
+  //     const orderRepons = await axios.post(`${url}/payment/checkout`, {
+  //       amount: price,
+  //       qty: qty,
+  //       cartItems: cart?.items,
+  //       userShipping: userAddress,
+  //       userId: user._id,
+  //     });
 
-      console.log(" order response ", orderRepons);
-      const { orderId, amount: orderAmount } = orderRepons.data;
+  //     console.log(" order response ", orderRepons);
+  //     const { orderId, amount: orderAmount } = orderRepons.data;
 
-      var options = {
-        key: "rzp_test_gHH711O4gcSjCq", // Enter the Key ID generated from the Dashboard
-        amount: orderAmount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-        currency: "INR",
-        name: "Web Dev Mastery",
-        description: "Web Dev Mastery",
+  //     var options = {
+  //       key: "rzp_test_gHH711O4gcSjCq", // Enter the Key ID generated from the Dashboard
+  //       amount: orderAmount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+  //       currency: "INR",
+  //       name: "Web Dev Mastery",
+  //       description: "Web Dev Mastery",
 
-        order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        handler: async function (response) {
-          const paymentData = {
-            orderId: response.razorpay_order_id,
-            paymentId: response.razorpay_payment_id,
-            signature: response.razorpay_signature,
-            amount: orderAmount,
-            orderItems: cart?.items,
-            userId: user._id,
-            userShipping: userAddress,
-          };
+  //       order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+  //       handler: async function (response) {
+  //         const paymentData = {
+  //           orderId: response.razorpay_order_id,
+  //           paymentId: response.razorpay_payment_id,
+  //           signature: response.razorpay_signature,
+  //           amount: orderAmount,
+  //           orderItems: cart?.items,
+  //           userId: user._id,
+  //           userShipping: userAddress,
+  //         };
 
-          const api = await axios.post(
-            `${url}/payment/verify-payment`,
-            paymentData
-          );
+  //         const api = await axios.post(
+  //           `${url}/payment/verify-payment`,
+  //           paymentData
+  //         );
 
-          console.log("razorpay res ", api.data);
+  //         console.log("razorpay res ", api.data);
 
-          if (api.data.success) {
-            clearCart();
-            navigate("/oderconfirmation");
-          }
-        },
-        prefill: {
-          name: "Web Dev ",
-          email: "master@gmail.com",
-          contact: "8707844732",
-        },
-        notes: {
-          address: "Bengaluru",
-        },
-        theme: {
-          color: "#3399cc",
-        },
-      };
-      const rzp = new window.Razorpay(options);
-      rzp.open();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //         if (api.data.success) {
+  //           clearCart();
+  //           navigate("/oderconfirmation");
+  //         }
+  //       },
+  //       prefill: {
+  //         name: "Web Dev ",
+  //         email: "master@gmail.com",
+  //         contact: "8707844732",
+  //       },
+  //       notes: {
+  //         address: "Bengaluru",
+  //       },
+  //       theme: {
+  //         color: "#3399cc",
+  //       },
+  //     };
+  //     const rzp = new window.Razorpay(options);
+  //     rzp.open();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+const handlePayment = async () => {
+  try {
+    navigate('/oderconfirmation');
+  } catch (error) {
+    console.log(error);
+  }
+}
 
   return (
     <>
