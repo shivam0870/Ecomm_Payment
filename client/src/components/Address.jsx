@@ -4,7 +4,7 @@ import AppContext from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
 
 const Address = () => {
-  const { shippingAddress, userAddress } = useContext(AppContext);
+  const { shippingAddress, getAddress } = useContext(AppContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -175,7 +175,7 @@ const Address = () => {
             </button>
           </div>
         </form>
-        {userAddress && (
+        {getAddress && (
           <div className="d-grid col-6 mx-auto my-3">
             <button className="btn btn-warning"
             onClick={()=>navigate('/checkout')}
